@@ -41,6 +41,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.io.StringReader;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -75,6 +76,9 @@ public class KuromojiAnalysisTests {
         analyzer = analysisService.analyzer("my_analyzer");
         assertThat(analyzer.analyzer(), instanceOf(CustomAnalyzer.class));
         assertThat(analyzer.analyzer().tokenStream(null, new StringReader("")), instanceOf(JapaneseTokenizer.class));
+
+        CharFilterFactory  charFilterFactory = analysisService.charFilter("kuromoji_iteration_mark");
+        assertThat(charFilterFactory, instanceOf(KuromojiIterationMarkCharFilterFactory.class));
     }
 
     @Test
@@ -130,6 +134,41 @@ public class KuromojiAnalysisTests {
         expected_tokens_katakana = new String[]{"明後日", "パーティー", "に", "行く", "予定", "が", "ある", "図書館", "で", "資料", "を", "コピー", "し", "まし", "た"};
         assertSimpleTSOutput(tokenFilter.create(tokenizer), expected_tokens_katakana);
     }
+    @Test
+    public void testIterationMarkCharFilter() throws IOException {
+        AnalysisService analysisService = createAnalysisService();
+        // test only kanji
+        CharFilterFactory charFilterFactory = analysisService.charFilter("kuromoji_im_only_kanji");
+        Assert.assertNotNull(charFilterFactory);
+        assertThat(charFilterFactory, instanceOf(KuromojiIterationMarkCharFilterFactory.class));
+
+        String source = "ところゞゝゝ、ジヾが、時々、馬鹿々々しい";
+        String expected = "ところゞゝゝ、ジヾが、時時、馬鹿馬鹿しい";
+
+        assertCharFilterEquals(charFilterFactory.create(new StringReader(source)), expected);
+
+        // test only kana
+
+        charFilterFactory = analysisService.charFilter("kuromoji_im_only_kana");
+        Assert.assertNotNull(charFilterFactory);
+        assertThat(charFilterFactory, instanceOf(KuromojiIterationMarkCharFilterFactory.class));
+
+        expected = "ところどころ、ジジが、時々、馬鹿々々しい";
+
+        assertCharFilterEquals(charFilterFactory.create(new StringReader(source)), expected);
+
+        // test default
+
+        charFilterFactory = analysisService.charFilter("kuromoji_im_default");
+        Assert.assertNotNull(charFilterFactory);
+        assertThat(charFilterFactory, instanceOf(KuromojiIterationMarkCharFilterFactory.class));
+
+        expected = "ところどころ、ジジが、時時、馬鹿馬鹿しい";
+
+        assertCharFilterEquals(charFilterFactory.create(new StringReader(source)), expected);
+
+
+    }
 
     public AnalysisService createAnalysisService() {
         Settings settings = ImmutableSettings.settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/kuromoji_analysis.json").build();
@@ -165,4 +204,20 @@ public class KuromojiAnalysisTests {
         }
         Assert.assertEquals(i, expected.length, "not all tokens produced");
     }
+
+    private void assertCharFilterEquals(Reader filtered,
+                                        String expected) throws IOException {
+        String actual = readFully(filtered);
+        Assert.assertEquals(actual, expected, "expected different string");
+    }
+
+    private String readFully(Reader reader) throws IOException {
+        StringBuilder buffer = new StringBuilder();
+        int ch;
+        while((ch = reader.read()) != -1){
+            buffer.append((char)ch);
+        }
+        return buffer.toString();
+    }
+
 }
