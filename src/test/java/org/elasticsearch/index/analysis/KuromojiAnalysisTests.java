@@ -44,7 +44,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 /**
@@ -139,7 +138,7 @@ public class KuromojiAnalysisTests extends ElasticsearchTestCase {
         AnalysisService analysisService = createAnalysisService();
         // test only kanji
         CharFilterFactory charFilterFactory = analysisService.charFilter("kuromoji_im_only_kanji");
-        Assert.assertNotNull(charFilterFactory);
+        assertNotNull(charFilterFactory);
         assertThat(charFilterFactory, instanceOf(KuromojiIterationMarkCharFilterFactory.class));
 
         String source = "ところゞゝゝ、ジヾが、時々、馬鹿々々しい";
@@ -150,7 +149,7 @@ public class KuromojiAnalysisTests extends ElasticsearchTestCase {
         // test only kana
 
         charFilterFactory = analysisService.charFilter("kuromoji_im_only_kana");
-        Assert.assertNotNull(charFilterFactory);
+        assertNotNull(charFilterFactory);
         assertThat(charFilterFactory, instanceOf(KuromojiIterationMarkCharFilterFactory.class));
 
         expected = "ところどころ、ジジが、時々、馬鹿々々しい";
@@ -160,7 +159,7 @@ public class KuromojiAnalysisTests extends ElasticsearchTestCase {
         // test default
 
         charFilterFactory = analysisService.charFilter("kuromoji_im_default");
-        Assert.assertNotNull(charFilterFactory);
+        assertNotNull(charFilterFactory);
         assertThat(charFilterFactory, instanceOf(KuromojiIterationMarkCharFilterFactory.class));
 
         expected = "ところどころ、ジジが、時時、馬鹿馬鹿しい";
@@ -208,7 +207,7 @@ public class KuromojiAnalysisTests extends ElasticsearchTestCase {
     private void assertCharFilterEquals(Reader filtered,
                                         String expected) throws IOException {
         String actual = readFully(filtered);
-        Assert.assertEquals(actual, expected, "expected different string");
+        assertThat("expected different string", expected, equalTo(actual));
     }
 
     private String readFully(Reader reader) throws IOException {
