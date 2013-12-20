@@ -37,19 +37,19 @@ import org.elasticsearch.index.settings.IndexSettingsModule;
 import org.elasticsearch.indices.analysis.IndicesAnalysisModule;
 import org.elasticsearch.indices.analysis.IndicesAnalysisService;
 import org.elasticsearch.plugin.analysis.kuromoji.AnalysisKuromojiPlugin;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.elasticsearch.test.ElasticsearchTestCase;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.*;
 
 /**
  */
-public class KuromojiAnalysisTests {
+public class KuromojiAnalysisTests extends ElasticsearchTestCase {
 
     @Test
     public void testDefaultsKuromojiAnalysis() throws IOException {
@@ -196,13 +196,13 @@ public class KuromojiAnalysisTests {
                                             String[] expected) throws IOException {
         stream.reset();
         CharTermAttribute termAttr = stream.getAttribute(CharTermAttribute.class);
-        Assert.assertNotNull(termAttr);
+        assertThat(termAttr, notNullValue());
         int i = 0;
         while (stream.incrementToken()) {
-            Assert.assertTrue(i < expected.length);
-            Assert.assertEquals(expected[i++], termAttr.toString(), "expected different term at index " + i);
+            assertThat(expected.length, greaterThan(i));
+            assertThat( "expected different term at index " + i, expected[i++], equalTo(termAttr.toString()));
         }
-        Assert.assertEquals(i, expected.length, "not all tokens produced");
+        assertThat("not all tokens produced", i, equalTo(expected.length));
     }
 
     private void assertCharFilterEquals(Reader filtered,
