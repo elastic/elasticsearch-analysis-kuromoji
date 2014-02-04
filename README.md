@@ -8,8 +8,10 @@ In order to install the plugin, simply run: `bin/plugin -install elasticsearch/e
 |  Kuromoji Analysis Plugin   |    elasticsearch    | Release date |
 |-----------------------------|---------------------|:------------:|
 | 2.0.0-SNAPSHOT (master)     | 1.0.0.RC1 -> master |              |
+| 2.0.0.RC2                   | 1.0.0.RC2 -> master |  2014-02-04  |
 | 2.0.0.RC1                   | 1.0.0.RC1 -> master |  2014-01-15  |
-| 1.8.0-SNAPSHOT (1.x)        | 0.90.8 -> 0.90      |              |
+| 1.9.0-SNAPSHOT (1.x)        | 0.90.8 -> 0.90      |              |
+| 1.8.0                       | 0.90.8 -> 0.90      |  2014-02-04  |
 | 1.7.0                       | 0.90.8 -> 0.90      |  2013-12-20  |
 | 1.6.0                       | 0.90.6 -> 0.90.7    |  2013-11-06  |
 | 1.5.0                       | 0.90.3 -> 0.90.5    |  2013-08-08  |
