@@ -53,7 +53,7 @@ This analyzer is the following tokenizer and tokenfilter combination.
 * `kuromoji_part_of_speech` : Kuromoji Part of Speech Stop Filter (TokenFilter)
 * `cjk_width` : CJK Width Filter (TokenFilter)
 * `stop` : Stop Filter (TokenFilter)
-* `kuromoji_stemmer` : Kuromiji Katakana Stemmer Filter(TokenFilter)
+* `kuromoji_stemmer` : Kuromoji Katakana Stemmer Filter(TokenFilter)
 * `lowercase` : LowerCase Filter (TokenFilter)
 
 ## CharFilter : kuromoji_iteration_mark
@@ -86,7 +86,7 @@ The mode is three types.
 
 * `normal` : Ordinary segmentation: no decomposition for compounds
 
-* `search` : Segmentation geared towards search: this includes a decompounding process for long nouns, also includeing the full compound token as a synonym.
+* `search` : Segmentation geared towards search: this includes a decompounding process for long nouns, also including the full compound token as a synonym.
 
 * `extended` : Extended mode outputs unigrams for unknown words.
 
@@ -166,7 +166,7 @@ curl -XPOST 'http://localhost:9200/kuromoji_sample/_analyze?analyzer=my_analyzer
 
 ## TokenFilter : kuromoji_baseform
 
-A token filter of type `kuromoji_baseform` that replcaes term text with BaseFormAttribute.
+A token filter of type `kuromoji_baseform` that replaces term text with BaseFormAttribute.
 This acts as a lemmatizer for verbs and adjectives.
 
 ### example
@@ -209,7 +209,7 @@ The following are settings that can be set for a stop token filter type:
 |:------------|:-----------------------------------------------------|
 | stoptags    | A list of part-of-speech tags that should be removed |
 
-Note that default setting is stoptags.txt include lucene-analyzer-kuromji.jar.
+Note that default setting is stoptags.txt include lucene-analyzer-kuromoji.jar.
 
 ### example
 
@@ -267,7 +267,7 @@ The following are settings that can be set for a `kuromoji_readingform` token fi
 |:------------|:----------------------------------------------------------|:------------------|
 | use_romaji  | `true` if romaji reading form output instead of katakana. | `false`           |
 
-Note that elasticsearch-analysis-kuromoji built-in `kuromoji_readingform` set default `ture` to `use_romaji` attribute.
+Note that elasticsearch-analysis-kuromoji built-in `kuromoji_readingform` set default `true` to `use_romaji` attribute.
 
 ### example
 
