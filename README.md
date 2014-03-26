@@ -15,6 +15,11 @@ In order to install the plugin, simply run: `bin/plugin -install elasticsearch/e
 |-----------------------------|---------------------|:------------:|
 | 2.1.0-SNAPSHOT              | 1.1.0 -> 1.1        |  XXXX-XX-XX  |
 
+Please read documentation relative to the version you are using:
+
+* [2.1.0-SNAPSHOT](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/es-1.1/README.md)
+
+
 The plugin includes the `kuromoji` analyzer.
 
 Includes Analyzer, Tokenizer, TokenFilter
