@@ -24,6 +24,20 @@ In order to install the plugin, simply run: `bin/plugin -install elasticsearch/e
 | 1.1.0                       | 0.19.2 -> 0.20      |  2012-11-21  |
 | 1.0.0                       | 0.19.0 -> 0.19.1    |  2012-04-30  |
 
+Please read documentation relative to the version you are using:
+
+* [1.9.0-SNAPSHOT](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/es-0.90/README.md)
+* [1.8.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.8.0/README.md)
+* [1.7.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.7.0/README.md)
+* [1.6.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.6.0/README.md)
+* [1.5.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.5.0/README.md)
+* [1.4.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.4.0/README.md)
+* [1.3.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.3.0/README.md)
+* [1.2.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.2.0/README.md)
+* [1.1.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.1.0/README.md)
+* [1.0.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/blob/v1.0.0/README.md)
+
+
 The plugin includes the `kuromoji` analyzer.
 
 Includes Analyzer, Tokenizer, TokenFilter
