@@ -15,11 +15,11 @@ You need to install a version matching your Elasticsearch version:
 |---------------|-----------------------------|------------|
 | master        |  Build from source          | See below  |
 | es-1.x        |  Build from source          | [2.4.0-SNAPSHOT](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/es-1.x/#version-240-snapshot-for-elasticsearch-1x)  |
-| es-1.3        |  2.3.0                      | [2.3.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/es-1.3/#version-230-snapshot-for-elasticsearch-1x)     |
-| es-1.2        |  2.2.0                      | [2.2.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/es-1.2/#japanese-kuromoji-analysis-for-elasticsearch)     |
-| es-1.1        |  2.1.0                      | [2.1.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/es-1.1/#japanese-kuromoji-analysis-for-elasticsearch)     |
-| es-1.0        |  2.0.0                      | [2.0.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/es-1.0/#japanese-kuromoji-analysis-for-elasticsearch)     |
-| es-0.90       |  1.8.0                      | [1.8.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/es-0.90#japanese-kuromoji-analysis-for-elasticsearch)  |
+| es-1.3        |  2.3.0                      | [2.3.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/v2.3.0/#japanese-kuromoji-analysis-for-elasticsearch)  |
+| es-1.2        |  2.2.0                      | [2.2.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/v2.2.0/#japanese-kuromoji-analysis-for-elasticsearch)  |
+| es-1.1        |  2.1.0                      | [2.1.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/v2.1.0/#japanese-kuromoji-analysis-for-elasticsearch)  |
+| es-1.0        |  2.0.0                      | [2.0.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/v2.0.0/#japanese-kuromoji-analysis-for-elasticsearch)  |
+| es-0.90       |  1.8.0                      | [1.8.0](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/v1.8.0/#japanese-kuromoji-analysis-for-elasticsearch)  |
 
 To build a `SNAPSHOT` version, you need to build it with Maven:
 
