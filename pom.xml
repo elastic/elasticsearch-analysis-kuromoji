@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.elasticsearch</groupId>
     <artifactId>elasticsearch-analysis-kuromoji</artifactId>
-    <version>2.4.1-SNAPSHOT</version>
+    <version>2.4.1</version>
     <packaging>jar</packaging>
     <name>Elasticsearch Japanese (kuromoji) Analysis plugin</name>
     <description>The Japanese (kuromoji) Analysis plugin integrates Lucene kuromoji analysis module into elasticsearch.</description>
