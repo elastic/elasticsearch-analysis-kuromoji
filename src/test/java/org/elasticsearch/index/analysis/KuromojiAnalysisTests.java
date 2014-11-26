@@ -185,7 +185,8 @@ public class KuromojiAnalysisTests extends ElasticsearchTestCase {
         assertThat(tokenFilter, instanceOf(JapaneseStopTokenFilterFactory.class));
         String source = "私は制限スピードを超える。";
         String[] expected = new String[]{"私", "制限", "超える"};
-        Tokenizer tokenizer = new JapaneseTokenizer(new StringReader(source), null, true, JapaneseTokenizer.Mode.SEARCH);
+        Tokenizer tokenizer = new JapaneseTokenizer(null, true, JapaneseTokenizer.Mode.SEARCH);
+        tokenizer.setReader(new StringReader(source));
         assertSimpleTSOutput(tokenFilter.create(tokenizer), expected);
     }
 

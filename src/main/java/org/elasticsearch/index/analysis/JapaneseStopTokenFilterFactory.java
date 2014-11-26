@@ -25,8 +25,6 @@ import org.apache.lucene.analysis.core.StopFilter;
 import org.apache.lucene.analysis.ja.JapaneseAnalyzer;
 import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.search.suggest.analyzing.SuggestStopFilter;
-import org.apache.lucene.util.Version;
-import org.elasticsearch.ElasticsearchIllegalArgumentException;
 import org.elasticsearch.common.collect.ImmutableMap;
 import org.elasticsearch.common.collect.MapBuilder;
 import org.elasticsearch.common.inject.Inject;
@@ -45,7 +43,6 @@ public class JapaneseStopTokenFilterFactory extends AbstractTokenFilterFactory{
 
     private final boolean ignoreCase;
 
-    private final boolean enablePositionIncrements;
     private final boolean removeTrailing;
 
     @Inject
@@ -56,20 +53,13 @@ public class JapaneseStopTokenFilterFactory extends AbstractTokenFilterFactory{
         ImmutableMap<String, Set<?>> namedStopWords = MapBuilder.<String, Set<?>>newMapBuilder()
             .put("_japanese_", JapaneseAnalyzer.getDefaultStopSet())
             .immutableMap();
-        this.stopWords = Analysis.parseWords(env, settings, "stopwords", JapaneseAnalyzer.getDefaultStopSet(), namedStopWords, version, ignoreCase);
-        this.enablePositionIncrements = settings.getAsBoolean("enable_position_increments", true);
-        if (!enablePositionIncrements && version.onOrAfter(Version.LUCENE_44)) {
-            throw new ElasticsearchIllegalArgumentException("[enable_position_increments: false] is not supported anymore as of Lucene 4.4 as it can create broken token streams."
-                + " Please fix your analysis chain or use an older compatibility version (<=4.3) but beware that it might cause unexpected behavior.");
-        }
+        this.stopWords = Analysis.parseWords(env, settings, "stopwords", JapaneseAnalyzer.getDefaultStopSet(), namedStopWords, ignoreCase);
     }
 
     @Override
     public TokenStream create(TokenStream tokenStream) {
         if (removeTrailing) {
-            StopFilter filter = new StopFilter(version, tokenStream, stopWords);
-            filter.setEnablePositionIncrements(enablePositionIncrements);
-            return filter;
+            return new StopFilter(tokenStream, stopWords);
         } else {
             return new SuggestStopFilter(tokenStream, stopWords);
         }
@@ -81,10 +71,6 @@ public class JapaneseStopTokenFilterFactory extends AbstractTokenFilterFactory{
 
     public boolean ignoreCase() {
         return ignoreCase;
-    }
-
-    public boolean enablePositionIncrements() {
-        return this.enablePositionIncrements;
     }
 
 }
