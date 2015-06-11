@@ -14,7 +14,7 @@ You need to install a version matching your Elasticsearch version:
 | elasticsearch |  Kuromoji Analysis Plugin   |   Docs     |  
 |---------------|-----------------------------|------------|
 | master        |  Build from source          | See below  |
-| es-1.x        |  Build from source          | [2.6.0-SNAPSHOT](https://github.com/elastic/elasticsearch-analysis-kuromoji/tree/es-1.x/#version-260-snapshot-for-elasticsearch-1x)  |
+| es-1.x        |  Build from source          | [2.7.0-SNAPSHOT](https://github.com/elastic/elasticsearch-analysis-kuromoji/tree/es-1.x/#version-270-snapshot-for-elasticsearch-1x)  |
 | es-1.6        |  2.6.0                      | [2.6.0](https://github.com/elastic/elasticsearch-analysis-kuromoji/tree/v2.6.0/#version-260-for-elasticsearch-16)                    |
 | es-1.5        |  2.5.0                      | [2.5.0](https://github.com/elastic/elasticsearch-analysis-kuromoji/tree/v2.5.0/#version-250-for-elasticsearch-15)                    |
 | es-1.4        |  2.4.3                      | [2.4.3](https://github.com/elasticsearch/elasticsearch-analysis-kuromoji/tree/v2.4.3/#version-243-for-elasticsearch-14)              |
