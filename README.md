@@ -3,7 +3,7 @@ Japanese (kuromoji) Analysis for Elasticsearch
 
 The Japanese (kuromoji) Analysis plugin integrates Lucene kuromoji analysis module into elasticsearch.
 
-## Version 2.6.0-SNAPSHOT for Elasticsearch: 1.x
+## Version 2.7.0 for Elasticsearch: 1.7
 
 If you are looking for another version documentation, please refer to the 
 [compatibility matrix](http://github.com/elasticsearch/elasticsearch-analysis-kuromoji#japanese-kuromoji-analysis-for-elasticsearch).
