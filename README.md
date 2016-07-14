@@ -6,12 +6,19 @@ From elasticsearch 2.0 you need to look at the following links:
 * [Documentation](https://www.elastic.co/guide/en/elasticsearch/plugins/current/index.html).
 * [Question? Bugs?](https://discuss.elastic.co/c/elasticsearch)
 
-For older versions, look at the following table:
+For older versions, look at the following documentation.
+
+In order to install the plugin, run:
+
+```sh
+bin/plugin install elasticsearch/elasticsearch-analysis-kuromoji/VERSION
+```
+
+Where `VERSION` is the one you want to install.
 
 
 | elasticsearch |  Kuromoji Analysis Plugin   |   Docs     |
 |---------------|-----------------------------|------------|
-| master        |  Build from source          | See below  |
 |    es-1.7              |     2.7.0         | [2.7.0](https://github.com/elastic/elasticsearch-analysis-kuromoji/tree/v2.7.0/#version-270-for-elasticsearch-17)                  |
 | es-1.6        |  2.6.0                      | [2.6.0](https://github.com/elastic/elasticsearch-analysis-kuromoji/tree/v2.6.0/#version-260-for-elasticsearch-16)                    |
 | es-1.5        |  2.5.0                      | [2.5.0](https://github.com/elastic/elasticsearch-analysis-kuromoji/tree/v2.5.0/#version-250-for-elasticsearch-15)                    |
